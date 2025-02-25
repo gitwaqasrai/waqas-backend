@@ -8,4 +8,13 @@ app.use(express.json({ limit: "15kb" }));
 app.use(express.urlencoded({ extended: true, limit: "15kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
+// Import Routes
+
+import userRouter from "./routes/user.routes.js";
+
+// Routes Declaration
+app.use("/api/v1/users", userRouter);
+
+//http://localhost:8000/api/v1/users/register
+
 export { app };
